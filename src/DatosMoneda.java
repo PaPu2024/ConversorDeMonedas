@@ -1,5 +1,7 @@
 import java.time.LocalDateTime;
 
+import static java.lang.String.valueOf;
+
 public class DatosMoneda {
 
     private String monedaInicial;
@@ -8,15 +10,29 @@ public class DatosMoneda {
     private double valorMonedaFinal;
     private LocalDateTime hora;
 
-    public DatosMoneda(String monedaInicial, double valorMonedaIncial, String monedaFinal, double valorMonedaFinal) {
-        this.monedaInicial = monedaInicial;
-        this.valorMonedaIncial = valorMonedaIncial;
+    public DatosMoneda(String monedaInicial, String monedaFinal) {
+        this.monedaInicial = moneda;
         this.monedaFinal = monedaFinal;
-        this.valorMonedaFinal = valorMonedaFinal;
-        this.hora = LocalDateTime.now();
+
     }
 
-    
+    public DatosMoneda(MonedaApi monedaApi) {
+        this.monedaInicial = monedaApi.base_code();
+        this.valorMonedaIncial = 1 ;
+
+    }
+
+    public DatosMoneda() {
+
+    }
+
+
+    public void infDeLaMonedaIncial(){
+        System.out.println("el nombre de la moneda: " + monedaInicial);
+        System.out.println("valor de la moneda inicial: " + valorMonedaIncial);
+
+
+    }
 
     public String getMonedaInicial() {
         return monedaInicial;
@@ -26,28 +42,12 @@ public class DatosMoneda {
         this.monedaInicial = monedaInicial;
     }
 
-    public double getValorMonedaIncial() {
-        return valorMonedaIncial;
-    }
-
-    public void setValorMonedaIncial(double valorMonedaIncial) {
-        this.valorMonedaIncial = valorMonedaIncial;
-    }
-
     public String getMonedaFinal() {
         return monedaFinal;
     }
 
     public void setMonedaFinal(String monedaFinal) {
         this.monedaFinal = monedaFinal;
-    }
-
-    public double getValorMonedaFinal() {
-        return valorMonedaFinal;
-    }
-
-    public void setValorMonedaFinal(double valorMonedaFinal) {
-        this.valorMonedaFinal = valorMonedaFinal;
     }
 
     public LocalDateTime getHora() {
