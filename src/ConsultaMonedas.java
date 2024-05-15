@@ -1,6 +1,4 @@
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -11,7 +9,7 @@ public class ConsultaMonedas {
 
 
 
-    public void consulta(String direccion){
+    public MonedaApi consulta(String direccion){
 
         URI direccionFinal = URI.create("https://v6.exchangerate-api.com/v6/7e84993f65c86a9b20a16543/latest/"+direccion);
         HttpClient client = HttpClient.newHttpClient();
@@ -24,9 +22,9 @@ public class ConsultaMonedas {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             String json  = response.body();
-            System.out.println("LISTA "+json);
+            //System.out.println("LISTA "+json);
 
-
+            return new Gson().fromJson(response.body(), MonedaApi.class);
 
         } catch (Exception e) {
             throw new RuntimeException("No se pudo realizar la conversión");

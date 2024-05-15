@@ -5,32 +5,20 @@ import static java.lang.String.valueOf;
 public class DatosMoneda {
 
     private String monedaInicial;
-    private double valorMonedaIncial;
+    private Double valorMonedaInicial;
     private String monedaFinal;
-    private double valorMonedaFinal;
+    private Double valorMonedaFinal;
+    private Double valorMonedaUsuario;
+    private Double resultado;
     private LocalDateTime hora;
 
     public DatosMoneda(String monedaInicial, String monedaFinal) {
-        this.monedaInicial = moneda;
+        this.monedaInicial = monedaInicial;
         this.monedaFinal = monedaFinal;
-
-    }
-
-    public DatosMoneda(MonedaApi monedaApi) {
-        this.monedaInicial = monedaApi.base_code();
-        this.valorMonedaIncial = 1 ;
-
-    }
-
-    public DatosMoneda() {
-
-    }
-
-
-    public void infDeLaMonedaIncial(){
-        System.out.println("el nombre de la moneda: " + monedaInicial);
-        System.out.println("valor de la moneda inicial: " + valorMonedaIncial);
-
+//        this.valorMonedaInicial = valorMonedaInicial;
+//        this.valorMonedaFinal = valorMonedaFinal;
+//        this.valorMonedaUsuario = valorMonedaUsuario;
+        this.hora = LocalDateTime.now();
 
     }
 
@@ -42,6 +30,14 @@ public class DatosMoneda {
         this.monedaInicial = monedaInicial;
     }
 
+    public Double getValorMonedaInicial() {
+        return valorMonedaInicial;
+    }
+
+    public void setValorMonedaInicial(Double valorMonedaInicial) {
+        this.valorMonedaInicial = valorMonedaInicial;
+    }
+
     public String getMonedaFinal() {
         return monedaFinal;
     }
@@ -50,11 +46,60 @@ public class DatosMoneda {
         this.monedaFinal = monedaFinal;
     }
 
+    public Double getValorMonedaUsuario() {
+        return valorMonedaUsuario;
+    }
+
+    public void setValorMonedaUsuario(Double valorMonedaUsuario) {
+        this.valorMonedaUsuario = valorMonedaUsuario;
+    }
+
+    public Double getValorMonedaFinal() {
+        return valorMonedaFinal;
+    }
+
+    public void setValorMonedaFinal(Double valorMonedaFinal) {
+        this.valorMonedaFinal = valorMonedaFinal;
+    }
+
+    public Double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(Double resultado) {
+        this.resultado = resultado;
+    }
+
     public LocalDateTime getHora() {
         return hora;
     }
 
     public void setHora(LocalDateTime hora) {
         this.hora = hora;
+    }
+
+
+
+    public void infDeLaMonedaIncial(){
+        System.out.println("el nombre de la moneda inicial: " + monedaInicial);
+        System.out.println("valor de la moneda inicial: " + valorMonedaInicial);
+        System.out.println("el nombre de la moneda final: "+ monedaFinal);
+        System.out.println("valor de la moneda final: " + valorMonedaFinal);
+
+
+
+    }
+
+
+    @Override
+    public String toString() {
+        return "\nLa moneda inical es: "+ monedaInicial +
+                "\nEl valor de la moneda inicial es: "+valorMonedaInicial+
+                "\nLa moneda final es: "+ monedaFinal+
+                "\nEl valor de la moneda final es:"+ valorMonedaFinal+
+                "\nEl valor a comvertir es:"+valorMonedaUsuario+
+                "\nEl resultado de la comversion es:"+ resultado+
+                "\nRegistro: "+ hora+
+                "\n*********************";
     }
 }

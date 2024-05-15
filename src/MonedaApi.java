@@ -1,4 +1,4 @@
-import java.util.HashMap;
+
 import java.util.Map;
 
 public record MonedaApi(String result,
@@ -11,6 +11,11 @@ public record MonedaApi(String result,
                         String base_code,
                         Map<String, Double> conversion_rates) {
 
+
+
+    public  Double getConversionRate(String monedaIndice) {
+        return conversion_rates.get(monedaIndice);
+    }
 
 
 }
